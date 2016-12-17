@@ -8,28 +8,32 @@ import java.util.List;
  * Created by nasir on 16/12/2016.
  */
 public class OutstandingCoursesToGraduate {
-    public static List solution1(List taken, List requiredToTake)
-    {
-        List outStandingCourses = new ArrayList();
-        int counter=0;
-        for(int i=0; i<requiredToTake.size(); i++)
-        {
-            if(!taken.contains(requiredToTake.get(i)))
-            {
-               outStandingCourses.add(counter,requiredToTake.get(i));
-                counter++;
+    public static List solution1(List taken, List requiredToTake) {
+        int counter = 0;
+        if (taken.size() == 0) {
+            return requiredToTake;
+        } else {
+            List outStandingCourses = new ArrayList();
+            for (int i = 0; i < requiredToTake.size(); i++) {
+                if (!taken.contains(requiredToTake.get(i))) {
+                    outStandingCourses.add(counter, requiredToTake.get(i));
+                    counter++;
+                }
             }
+            return outStandingCourses;
         }
-
-        return outStandingCourses;
     }
 
 
     public static List solution2(List taken, List requiredToTake)
     {
-        List outStandingCourses = new ArrayList(requiredToTake);
-        outStandingCourses.removeAll(taken);
-        return outStandingCourses;
+        if (taken.size() == 0) {
+            return requiredToTake;
+        } else {
+            List outStandingCourses = new ArrayList(requiredToTake);
+            outStandingCourses.removeAll(taken);
+            return outStandingCourses;
+        }
     }
 
     public static void main(String[] args)
