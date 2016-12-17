@@ -18,13 +18,13 @@ public class PhoneNumber {
         {
             if(!arr[i].trim().equals(""))
             {
-                newS += arr[i];
-                counter++;
                 if(counter == 3)
                 {
                     counter=0;
                     newS +="-";
                 }
+                newS += arr[i];
+                counter++;
             }
         }
         return newS;
@@ -32,7 +32,7 @@ public class PhoneNumber {
 
     public static void main(String [] args)
     {
-        String S = "456478536754";
+        String S = "4-         5647-----8536-754";
         System.out.println(solution(S));
     }
 }
