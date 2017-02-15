@@ -6,24 +6,33 @@ public class Substring
 {
     public static String solution(String firstString, String secondString)
     {
-        String str1 = secondString.toLowerCase();
+        String str1 = firstString.toLowerCase();
         String str2 = secondString.toLowerCase();
-        String msg ="";
-        for(int i=0; i < str1.length(); i++)
+        str1 = str1.trim();
+        str2 = str2.trim();
+        String msg = "";
+        if ((str1.length() == 0) || (str2.length() == 0))
         {
-            if((str1.length() - i) >= str2.length())
+            msg = "No substring found!";
+        }
+        else
+        {
+            for (int i = 0; i < str1.length(); i++)
             {
-                String newStr = str1.substring(i, (i + str2.length()));
-                if(str2.equals(newStr))
+                if ((str1.length() - i) >= str2.length())
                 {
-                    msg = "Substring Found!";
+                    String newStr = str1.substring(i, (i + str2.length()));
+                    if (str2.equals(newStr))
+                    {
+                        msg = "Substring Found!";
+                        break;
+                    }
+                }
+                else
+                {
+                    msg = "No substring found!";
                     break;
                 }
-            }
-            else
-            {
-                msg = "No substring found!";
-                break;
             }
         }
         return msg;
